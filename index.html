@@ -3,88 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the JuanUsBot</title>
+    <title>JuanUsBot</title>
     <style>
         body {
+            background-color: #003366; /* Darker blue background */
+            color: #f0e68c; /* Softer yellow text */
             font-family: Arial, sans-serif;
-            background-color: #a8cfe3; /* Darker blue background */
-            color: #F0E68C; /* Softer yellow text color for title */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            margin-bottom: 20px;
-            color: #F0E68C; /* Softer yellow color for the title */
-        }
-        #chatResponse {
-            width: 90%;
-            max-width: 600px;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
             padding: 20px;
-            margin-bottom: 20px;
-            overflow-y: auto;
-            max-height: 300px;
-            color: black; /* Black text for conversation */
         }
-        input[type="text"] {
-            width: 90%;
-            max-width: 600px;
+        #chat-container {
+            max-width: 400px;
+            margin: auto;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            color: #000;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        #userInput {
+            width: 80%;
+            padding: 8px;
         }
-        button:hover {
-            background-color: #45a049;
+        #sendButton {
+            padding: 8px;
+        }
+        #chatResponse p {
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the JuanUsBot</h1>
-    <div id="chatResponse"></div>
-    <input type="text" id="userInput" placeholder="Type your message here" onkeypress="checkEnter(event)">
-    <button onclick="sendMessage()">Send</button>
-
+    <h1>Welcome to JuanUsBot!</h1>
+    <div id="chat-container">
+        <input type="text" id="userInput" placeholder="Type your message here" onkeydown="if (event.key === 'Enter') sendMessage()">
+        <button id="sendButton" onclick="sendMessage()">Send</button>
+        <div id="chatResponse"></div>
+    </div>
     <script>
-        async function sendMessage() {
+        function sendMessage() {
             const userInput = document.getElementById("userInput").value;
-            if (userInput.trim() === "") return; // Prevent sending empty messages
-            const response = await fetch("http://localhost:8000", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ message: userInput })
-            });
-            const data = await response.json();
             document.getElementById("chatResponse").innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-            document.getElementById("chatResponse").innerHTML += `<p><strong>Chatbot:</strong> ${data.response}</p>`;
+            // Simple response logic for demo purposes
+            let response = "I'm not sure how to respond.";
+            if (userInput.toLowerCase().includes("hello")) response = "Hello! How can I assist you today?";
+            else if (userInput.toLowerCase().includes("how are you")) response = "I'm just a program, but thanks for asking!";
+            else if (userInput.toLowerCase().includes("your name")) response = "I'm JuanUsBot!";
+            document.getElementById("chatResponse").innerHTML += `<p><strong>JuanUsBot:</strong> ${response}</p>`;
             document.getElementById("userInput").value = ""; // Clear input
-            // Scroll to the bottom of the chat response
-            const chatResponseDiv = document.getElementById("chatResponse");
-            chatResponseDiv.scrollTop = chatResponseDiv.scrollHeight;
-        }
-
-        function checkEnter(event) {
-            if (event.key === "Enter") {
-                sendMessage(); // Call sendMessage function when Enter key is pressed
-            }
         }
     </script>
 </body>
 </html>
+
