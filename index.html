@@ -3,17 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Chatbot</title>
+    <title>Welcome to the JuanUsBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a8cfe3; /* Darker blue background */
+            color: #F0E68C; /* Softer yellow text color for title */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #F0E68C; /* Softer yellow color for the title */
+        }
+        #chatResponse {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            overflow-y: auto;
+            max-height: 300px;
+            color: black; /* Black text for conversation */
+        }
+        input[type="text"] {
+            width: 90%;
+            max-width: 600px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to the JuanUsBot</h1>
-    <input type="text" id="userInput" placeholder="Type your message here">
-    <button onclick="sendMessage()">Send</button>
     <div id="chatResponse"></div>
+    <input type="text" id="userInput" placeholder="Type your message here" onkeypress="checkEnter(event)">
+    <button onclick="sendMessage()">Send</button>
 
     <script>
         async function sendMessage() {
             const userInput = document.getElementById("userInput").value;
+            if (userInput.trim() === "") return; // Prevent sending empty messages
             const response = await fetch("http://localhost:8000", {
                 method: "POST",
                 headers: {
@@ -25,6 +75,15 @@
             document.getElementById("chatResponse").innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
             document.getElementById("chatResponse").innerHTML += `<p><strong>Chatbot:</strong> ${data.response}</p>`;
             document.getElementById("userInput").value = ""; // Clear input
+            // Scroll to the bottom of the chat response
+            const chatResponseDiv = document.getElementById("chatResponse");
+            chatResponseDiv.scrollTop = chatResponseDiv.scrollHeight;
+        }
+
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                sendMessage(); // Call sendMessage function when Enter key is pressed
+            }
         }
     </script>
 </body>
