@@ -19,6 +19,8 @@
             border: 2px solid #ccc;
             background-color: #fff;
             color: #000;
+            overflow-y: auto; /* Allow scrolling */
+            max-height: 300px; /* Set a max height for the chat container */
         }
         #userInput {
             width: 80%;
@@ -30,31 +32,244 @@
         #chatResponse p {
             text-align: left;
         }
-        #chatResponse {
-            max-height: 200px;
-            overflow-y: auto;
-        }
     </style>
 </head>
 <body>
     <h1>Welcome to JuanUsBot!</h1>
     <div id="chat-container">
-        <input type="text" id="userInput" placeholder="Type your message here" onkeydown="if (event.key === 'Enter') sendMessage()">
-        <button id="sendButton" onclick="sendMessage()">Send</button>
         <div id="chatResponse"></div>
     </div>
+    <input type="text" id="userInput" placeholder="Type your message here" onkeydown="if (event.key === 'Enter') sendMessage()">
+    <button id="sendButton" onclick="sendMessage()">Send</button>
+    
     <script>
         function sendMessage() {
             const userInput = document.getElementById("userInput").value;
-            document.getElementById("chatResponse").innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+            // Prepend user message to chat response
+            document.getElementById("chatResponse").innerHTML = `<p><strong>You:</strong> ${userInput}</p>` + document.getElementById("chatResponse").innerHTML;
+
             // Simple response logic for demo purposes
             let response = "I'm not sure how to respond.";
+            
             if (userInput.toLowerCase().includes("11")) response = "8-9 Ms.Nico";
             else if (userInput.toLowerCase().includes("17")) response = "gandaa mo po";
             else if (userInput.toLowerCase().includes("hello")) response = "I'm JuanUsBot";
             else if (userInput.toLowerCase().includes("tubol")) response = "cr";
-            document.getElementById("chatResponse").innerHTML += `<p><strong>JuanUsBot:</strong> ${response}</p>`;
+            else if (userInput === "9") {
+                response = `11 - STEM A
+
+                Monday
+                7:00-8:00
+                8:00-9:00 (Per Dev) 
+                9:00-10:00 (Oral Com) 
+                10:00-10:30
+                10:30-11:30 (Kom at Pan)
+                11:30-12:30 (Philosophy) 
+                12:30-1:00
+                1:00-2:00
+                2:00-3:00
+
+                Tuesday
+                7:00-8:00 (Earth Science) 
+                8:00-9:00 (Per Dev) 
+                9:00-10:00 (Homeroom) 
+                10:30-11:30 (Kom at Pan) 
+                11:30-12:30 (Philosophy) 
+                1:00-2:00 (Gen Math) 
+                2:00-3:00 (Pre Cal) 
+
+                Wednesday
+                7:00-8:00 (Earth Science) 
+                8:00-9:00 (Per Dev) 
+                9:00-10:00 (Oral Com) 
+                10:00-10:30
+                10:30-11:30 (Kom at Pan) 
+                11:30-12:30 (Philosophy) 
+                1:00-2:00 (Gen Math) 
+                2:00-3:00 (Pre Cal) 
+
+                Thursday
+                7:00-8:00 (Earth Science) 
+                8:00-9:00 (Per Dev) 
+                9:00-10:00 (Oral Com) 
+                10:00-10:30
+                10:30-11:30 (HOPE 1) 
+                11:30-12:30 (Philosophy) 
+                1:00-2:00 (Gen Math) 
+
+                Friday
+                7:00-8:00 (PerDev)
+                8:00-9:00 (Gen Math)
+                9:00-10:00 (Kom at Pan)
+                10:00-10:30
+                10:30-11:30 (Earth Science)
+                11:30-12:30 (Philosophy)
+                12:30-1:00
+                1:00-2:00 (Pre Cal)`;
+            }
+            else if (userInput === "10") {
+                response = `11 STEM-B
+
+                Monday
+                7:00-8:00 (Kom at Pan)
+                8:00-9:00
+                9:00-10:00 (Homeroom)
+                10:00-10:30
+                10:30-11:30 (Philosophy)
+                11:30-12:30 (Oral Com)
+                12:30-1:00
+                1:00-2:00 (Pre Cal)
+
+                Tuesday
+                7:00-8:00 (PerDev)
+                8:00-9:00 (Gen Math)
+                9:00-10:00 (Philosophy)
+                10:00-10:30
+                10:30-11:30 (Earth Science)
+                11:30-12:30 (Oral Com)
+                12:30-1:00
+                1:00-2:00 (Gen Math)
+
+                Wednesday
+                7:00-8:00 (PerDev)
+                8:00-9:00 (Gen Math)
+                9:00-10:00 (Kom at Pan)
+                10:00-10:30
+                10:30-11:30 (Earth Science)
+                11:30-12:30 (Oral Com)
+                12:30-1:00
+                1:00-2:00 (Pre Cal)
+                2:00-3:00 (Philo)
+
+                Thursday
+                7:00-8:00 (PerDev)
+                8:00-9:00 (HOPE)
+                9:00-10:00 (Kom at Pan)
+                10:00-10:30
+                10:30-11:30 (Earth Science)
+                11:30-12:30 (Oral Com)
+                12:30-1:00
+                1:00-2:00 (Gen Math)
+
+                Friday
+                7:00-8:00 (PerDev)
+                8:00-9:00 (Gen Math)
+                9:00-10:00 (Kom at Pan)
+                10:00-10:30
+                10:30-11:30 (Earth Science)
+                11:30-12:30 (Philo)
+                12:30-1:00
+                1:00-2:00 (Pre Cal)`;
+            }
+            else if (userInput === "11") {
+                response = `11 - HUMSS
+
+                Monday
+                7:00-8:00 (Oral Com)
+                8:00-9:00 (Vacant)
+                9:00-10:00 (Kom at Pat)
+                10:00-10:30 (Recess)
+                10:30-11:30 (Gen Math)
+                11:30-12:30 (Gen Math)
+                12:30:1:00 (Lunch Break)
+                1:00-2:00 (Philo)
+                2:00-3:00 (Hope 1)
+
+                Tuesday
+                7:00-8:00 (Oral Com)
+                8:00-9:00 (DISS)
+                9:00-10:00 (Per Dev)
+                10:00:10:30 (Recess)
+                10:30-11:30 (Philo)
+                11:30-12:30 (Kom at Pan)
+                12:30-1:00 (Lunch Break)
+                1:00-2:00 (Earth & LS)
+
+                Wednesday 
+                7:00-8:00 (Oral Com)
+                8:00-9:00 (DISS)
+                9:00-10:00 (Per Dev)
+                10:00-11:30 (Recess)
+                10:30-11:30 (Philo)
+                11:30-12:30 (Kom at Pan)
+                12:30:1:00 (Lunch Break)
+                1:00-2:00 (Earth & LS)
+
+                Thursday
+                7:00-8:00 (Oral Com)
+                8:00-9:00 (DISS)
+                9:00-10:00 (Per Dev)
+                10:00-10:30 (Recess)
+                10:30-11:30 (Gen Math)
+                11:30-12:30 (Gen Math)
+                12:30-1:00 (Lunch Break)
+                1:00-2:00 (Earth & LS)
+
+                Friday
+                7:00-8:00 (Earth & LS)
+                8:00-9:00 (DISS)
+                9:00-10:00 (Per Dev)
+                10:00-10:30 (Recess)
+                10:30-11:30 (Philo)
+                11:30-12:30 (Kom at Pan)
+                12:30-1:00 (Lunch Break)
+                1:00-2:00 (Home Room)`;
+            }
+            else if (userInput === "12") {
+                response = `12 - ABM
+
+                Monday
+                7:00-9:00 (Org Man)
+                9:00-10:00 (Kom at Pan)
+                10:00-10:30 (break time)
+                10:30-11:30 (Oral Com)
+                11:30-12:30 (Earth & LS)
+                12:30-1:00 (break time)
+                1:00-3:00 (Gen Math)
+
+                Tuesday
+                7:00-8:00 (Org Man)
+                8:00-9:00 (Per Dev)
+                9:00-10:00 (Kom at Pan)
+                10:00-10:30 (break time)
+                10:30-11:30 (Oral Com)
+                11:30-12:30 (Earth & LS)
+                12:30-1:00 (break time)
+                1:00-2:00 (Philo)
+
+                Wednesday
+                7:00-8:00 (Org Man)
+                8:00-9:00 (Per Dev)
+                9:00-10:00 (Kom at Pan)
+                10:00-10:30 (break time)
+                10:30-11:30 (Earth & LS)
+                11:30-12:30 (HOPE 1)
+                12:30-1:00 (break time)
+                1:00-2:00 (Oral Com)
+
+                Thursday
+                7:00-8:00 (Org Man)
+                8:00-9:00 (Per Dev)
+                9:00-10:00 (Philo)
+                10:00-10:30 (break time)
+                10:30-11:30 (Oral Com)
+                11:30-12:30 (Earth & LS)
+
+                Friday
+                8:00-9:00 (Per Dev)
+                9:00-10:00 (Kom at Pan)
+                10:00-10:30 (break time)
+                10:30-12:30 (Gen Math)
+                12:30-1:00 (break time)
+                1:00-3:00 (Philo)`;
+            }
+
+            // Prepend the bot's response to the chat response
+            document.getElementById("chatResponse").innerHTML = `<p><strong>JuanUsBot:</strong> ${response.replace(/\n/g, "<br>")}</p>` + document.getElementById("chatResponse").innerHTML;
             document.getElementById("userInput").value = ""; // Clear input
+
+            // Scroll to the top of the chat container
+            document.getElementById("chat-container").scrollTop = 0;
         }
     </script>
 </body>
