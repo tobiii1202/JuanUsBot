@@ -6,41 +6,41 @@
     <title>JuanUsBot</title>
     <style>
         body {
-            background-color: #2E7D32;
+            background-color: #2E7D32; /* Darker green background */
             color: #f0e68c;
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
             display: flex;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
+            flex-direction: column; /* Use flexbox for layout */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
         }
         h1 {
             margin-bottom: 20px;
             color: #ffcc00;
         }
         #chat-container {
-            flex: 1;
-            width: 80%;
-            max-width: 800px;
+            flex: 1; /* Take up remaining space */
+            width: 80%; /* Set width to 80% of the container */
+            max-width: 800px; /* Maximum width */
             margin: auto;
             padding: 10px;
             border: 1px solid #ccc;
             background-color: #fff;
             color: #000;
-            overflow-y: auto;
-            height: 150px;
-            border-radius: 5px;
+            overflow-y: auto; /* Enable vertical scrolling */
+            height: 250px; /* Fixed height for the chat container */
+            border-radius: 5px; /* Match border radius with input box */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
-            text-align: left;
+            margin-top: 20px; /* Added margin for separation */
+            text-align: left; /* Align text to the left in the chat box */
         }
         #chatResponse {
-            font-size: 14px;
+            font-size: 14px; /* Set font size for conversation box */
         }
         #chatResponse p {
-            margin: 10px 0;
+            margin: 10px 0; /* Adjust margin for chat response paragraphs */
         }
         #userInputContainer {
             display: flex;
@@ -48,16 +48,16 @@
             margin-top: 10px;
         }
         #userInput {
-            width: 80%;
+            width: 80%; /* Text input takes 80% of the width */
             padding: 8px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 5px; /* Added border radius */
         }
         #sendButton {
             padding: 8px;
             background-color: #ffcc00;
             border: none;
-            border-radius: 5px;
+            border-radius: 5px; /* Added border radius */
             cursor: pointer;
             margin-left: 10px;
         }
@@ -65,25 +65,25 @@
             background-color: #ffd700;
         }
         #infoBox {
-            background-color: #ffffcc;
+            background-color: #ffffcc; /* Light yellow */
             border: 1px solid #ccc;
             border-radius: 10px;
-            padding: 5px;
+            padding: 5px; /* Reduced padding */
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
-            margin: 0 auto;
-            text-align: left;
+            max-width: 300px; /* Set a max width for the info box */
+            margin: 0 auto; /* Center the info box */
+            text-align: left; /* Align text to the left */
         }
         #infoBox h3 {
-            font-size: 16px;
-            margin-bottom: 5px;
-            color: black;
+            font-size: 16px; /* Smaller font size for the heading */
+            margin-bottom: 5px; /* Reduced margin */
+            color: black; /* Text color */
         }
         #infoBox p {
-            font-size: 14px;
-            margin: 3px 0;
-            color: black;
+            font-size: 14px; /* Smaller font size for paragraphs */
+            margin: 3px 0; /* Reduced margin */
+            color: black; /* Text color */
         }
     </style>
 </head>
@@ -93,7 +93,6 @@
         <h3>Available Questions:</h3>
         <p>• (1) Who is our current principal?</p>
         <p>• (2) Who are the teachers at Elpidio Quirino Senior High School?</p>
-        <p>• (3) Information about Elpidio Quirino High School</p>
         <p>Specific Schedule for each strand:</p>
         <p>• (11) 11 - STEM A</p>
         <p>• (12) 11 - STEM B</p>
@@ -137,19 +136,310 @@
                             Jamil O. Carvajal - Master Teacher II<br><br>
                             Rowena A. Gonjoran - Teacher II<br><br>
                             Freddie H. Ecaldre - Master Teacher II`;
-            } else if (userInput === "3") {
-                response = `Elpidio Quirino is the 6th President of the Philippines<br><br>
-                            The former name of Elpidio Quirino Highschool when it was established in 1962 was Rizal-Hidalgo High School<br><br>
-                            The celebration of Elpidio Quirino Highschool foundation day is the same date as his birthday which is on November 16, 1890<br><br>
-                            Before Elpidio Quirino School was established on Bacood Street, its first building was constructed in Quiapo, Manila in 1962<br><br>
-                            The very first principal of Elpidio Quirino High School is Mr. Alfonso R. Asuncion<br><br>
-                            The official newspaper name of Elpidio Quirino High School is the Gold Reed or in Filipino Ang Gintong Panitik<br><br>
-                            The Battle of Manila or Labanan ng Maynila was where President Elpidio Quirino’s wife and three children got killed in 1945`;
-            } 
-            // (Other conditions for other user inputs can go here)
+            } else if (userInput === "11") {
+                response = `<pre>11 - STEM A
 
-            document.getElementById("chatResponse").innerHTML = `<p><strong>JuanUsBot:</strong> ${response}</p>` + document.getElementById("chatResponse").innerHTML;
-            document.getElementById("userInput").value = ""; // Clear input
+Monday
+8:00-9:00 (Per Dev) 
+9:00-10:00 (Oral Com) 
+10:30-11:30 (Kom at Pan)
+11:30-12:30 (Philosophy) 
+
+Tuesday
+7:00-8:00 (Earth Science) 
+8:00-9:00 (Per Dev) 
+9:00-10:00 (Homeroom) 
+10:30-11:30 (Kom at Pan) 
+11:30-12:30 (Philosophy) 
+1:00-2:00 (Gen Math) 
+2:00-3:00 (Pre Cal) 
+
+Wednesday
+7:00-8:00 (Earth Science) 
+8:00-9:00 (Per Dev) 
+9:00-10:00 (Oral Com) 
+10:30-11:30 (Kom at Pan) 
+11:30-12:30 (Philosophy) 
+1:00-2:00 (Gen Math) 
+2:00-3:00 (Pre Cal) 
+
+Thursday
+7:00-8:00 (Earth Science) 
+8:00-9:00 (Per Dev) 
+9:00-10:00 (Oral Com) 
+10:30-11:30 (HOPE 1) 
+11:30-12:30 (Philosophy) 
+1:00-2:00 (Gen Math) 
+2:00-3:00 (Pre Cal) 
+
+Friday
+9:00-10:00 (Oral Com) 
+10:30-11:30 (Kom at Pan) 
+11:30-12:30 (Earth Science) 
+1:00-2:00 (Gen Math) 
+2:00-3:00 (Pre Cal)</pre>`;
+            } else if (userInput === "12") {
+                response = `<pre>11 - STEM B
+
+Monday
+7:00-8:00 (Kom at Pan)
+8:00-9:00
+9:00-10:00 (Homeroom)
+10:00-10:30
+10:30-11:30 (Philosophy)
+11:30-12:30 (Oral Com)
+12:30-1:00
+1:00-2:00 (Pre Cal)
+
+Tuesday
+7:00-8:00 (Per Dev)
+8:00-9:00 (Gen Math)
+9:00-10:00 (Philosophy)
+10:00-10:30
+10:30-11:30 (Earth Science)
+11:30-12:30 (Oral Com)
+12:30-1:00
+1:00-2:00 (Pre Cal)
+
+Wednesday
+7:00-8:00 (Per Dev)
+8:00-9:00 (Gen Math)
+9:00-10:00 (Kom at Pan)
+10:00-10:30
+10:30-11:30 (Earth Science)
+11:30-12:30 (Oral Com)
+12:30-1:00
+1:00-2:00 (Pre Cal)
+2:00-3:00 (Philosophy)
+
+Thursday
+7:00-8:00 (Per Dev)
+8:00-9:00 (HOPE)
+9:00-10:00 (Kom at Pan)
+10:00-10:30
+10:30-11:30 (Earth Science)
+11:30-12:30 (Oral Com)
+12:30-1:00
+1:00-2:00 (Gen Math)
+
+Friday
+7:00-8:00 (Per Dev)
+8:00-9:00 (Gen Math)
+9:00-10:00 (Kom at Pan)
+10:00-10:30
+10:30-11:30 (Earth Science)
+11:30-12:30 (Philosophy)
+12:30-1:00
+1:00-2:00 (Pre Cal)</pre>`;
+            } else if (userInput === "13") {
+                response = `<pre>11 - HUMSS
+
+Monday
+7:00-8:00 (Kom at Pan)
+8:00-9:00 (Oral Com)
+9:00-10:00 (Philosophy)
+10:00-10:30
+10:30-11:30 (Earth Science)
+11:30-12:30 (Literature)
+
+Tuesday
+7:00-8:00 (Gen Math)
+8:00-9:00 (PE)
+9:00-10:00 (Homeroom)
+10:00-10:30
+10:30-11:30 (Literature)
+11:30-12:30 (Philosophy)
+
+Wednesday
+7:00-8:00 (Earth Science)
+8:00-9:00 (Kom at Pan)
+9:00-10:00 (Oral Com)
+10:00-10:30
+10:30-11:30 (Literature)
+11:30-12:30 (Philosophy)
+
+Thursday
+7:00-8:00 (PE)
+8:00-9:00 (Gen Math)
+9:00-10:00 (Literature)
+10:00-10:30
+10:30-11:30 (Earth Science)
+11:30-12:30 (Philosophy)
+
+Friday
+7:00-8:00 (Kom at Pan)
+8:00-9:00 (Oral Com)
+9:00-10:00 (Literature)
+10:00-10:30
+10:30-11:30 (PE)
+11:30-12:30 (Earth Science)</pre>`;
+            } else if (userInput === "14") {
+                response = `<pre>11 - Home Economics 
+
+Monday
+7:00-8:00 (Home Room)
+8:00-9:00 (Major)
+9:00-10:00 (Gen Math)
+10:00-10:30 (Break Time)
+10:30-11:30 (Philo)
+11:30-12:30 (Philo)
+12:30-1:00 (Lunch Time)
+1:00-2:00 (Kom at Pan)
+2:00-3:00 (Earth & LS)
+
+Tuesday
+7:00-8:00 (Major)
+8:00-9:00 (Major)
+9:00-10:00 (Oral Com)
+10:00-10:30 (Break Time)
+10:30-11:30 (Gen Math)
+11:30-12:30 (Perdev)
+12:30-1:00 (Lunch Time)
+1:00-2:00 (Kom at Pan)
+2:00-3:00 (Hope 1)
+
+Wednesday 
+7:00-8:00 (Major)
+8:00-9:00 (Major)
+9:00-10:00 (Gen Math)
+10:00-10:30 (Break Time)
+10:30-11:30 (Perdev)
+11:30-12:30 (Perdev)
+12:30-1:00 (Lunch Time)
+1:00-2:00 (Kom at Pan)
+2:00-3:00 (Philo)
+
+Thursday
+7:00-8:00 (Major)
+8:00-9:00 (Major)
+9:00-10:00 (Gen Math)
+10:00-10:30 (Break Time)
+10:30-11:30 (Philo)
+11:30-12:30 (Perdev)
+12:30-1:00 (Lunch Time)
+1:00-2:00 (Kom at Pan)
+2:00-3:00 (Earth & LS)
+
+Friday
+7:00-8:00 (Major)
+8:00-9:00 (Major)
+9:00-10:00 (Oral Com)
+10:00-10:30 (Break Time)
+10:30-11:30 (Oral Com)
+11:30-12:30 (Oral Com)
+12:30-1:00 (Lunch Time)
+1:00-2:00 (Earth & LS)
+2:00-3:00 (Earth & LS)</pre>`;
+            } else if (userInput === "15") {
+                response = `<pre>11 - ABM
+
+Monday
+7:00-9:00 (Org Man)
+9:00-10:00 (Kom at Pan)
+10:00-10:30 (break time)
+10:30-11:30 (Oral Com)
+11:30-12:30 (Earth & LS)
+12:30-1:00 (break time)
+1:00-3:00 (Genmath)
+
+Tuesday
+7:00-8:00 (Org Man)
+8:00-9:00 (Per Dev)
+9:00-10:00 (Kom at Pan)
+10:00-10:30 (break time)
+10:30-11:30 (Oral Com)
+11:30-12:30 (Earth & LS)
+12:30-1:00 (break time)
+1:00-2:00 (Philo)
+
+Wednesday
+7:00-8:00 (Org Man)
+8:00-9:00 (Per Dev)
+9:00-10:00 (Kom at Pan)
+10:00-10:30 (break time)
+10:30-11:30 (Earth & LS)
+11:30-12:30 (HOPE 1)
+12:30-1:00 (break time)
+1:00-2:00 (Oral Com)
+
+Thursday
+7:00-8:00 (Org Man)
+8:00-9:00 (Per Dev)
+9:00-10:00 (Philo)
+10:00-10:30 (break time)
+10:30-11:30 (Oral Com)
+11:30-12:30 (Earth & LS)
+
+Friday
+8:00-9:00 (Per Dev)
+9:00-10:00 (Kom at Pan)
+10:00-10:30 (break time)
+10:30-12:30 (Gen Math)
+12:30-1:00 (break time)
+1:00-3:00 (Philo)</pre>`;
+            } else if (userInput === "16") {
+                response = `<pre>11 - EPAS
+
+11 - EPAS
+
+Monday
+7:00-8:00 (Earth & LS) 
+8:00-9:00 (Earth & LS) 
+9:00-10:00 (Homeroom) 
+10:00-10:30 
+10:30-11:30 (Major 1) 
+11:30-12:30 (Major 1) 
+12:30-1:00 
+1:00-2:00 (Per Dev)
+2:00-3:00 (Philo)
+
+Tuesday
+7:00-8:00(Kom at Pan) 
+8:00-9:00 (Oral Com) 
+9:00-10:00 (Gen Math) 
+10:00-10:30
+10:30-11:30 (Major 1)
+11:30-12:30 (Major 1) 
+12:30-1:00
+1:00-2:00 (Per Dev) 
+2:00-3:00 (Philo) 
+
+Wednesday
+7:00-8:00 (Kom at Pan) 
+8:00-9:00 (Oral Com) 
+9:00-10:00 (Earth & LS) 
+10:00-10:30
+10:30-11:30 (Gen Math) 
+11:30-12:30 ( Gen Math) 
+12:30-1:00
+1:00-2:00 (Philo) 
+2:00-3:00 (HOPE 1) 
+
+Thursday
+7:00-8:00 (Kom at Pan) 
+8:00-9:00 (Oral Com) 
+9:00-10:00 (Earth & LS) 
+10:00-10:30
+10:30-11:30 (Major 1) 
+11:30-12:30 ( Major 1) 
+12:30-1:00
+1:00-2:00 (Per Dev) 
+2:00-3:00 (Philo) 
+
+Friday
+7:00-8:00 (Kom at Pam)
+8:00-9:00 (Oral Com)
+9:00-10:00 (Gen Math) 
+10:00-10:30
+10:30-11:30 (Major 1) 
+11:30-12:30 (Major 1) 
+12:30-1:00
+1:00-2:00 (Per Dev) 
+2:00-3:00</pre>`;
+            }
+
+            document.getElementById("chatResponse").innerHTML = `<p><strong>JuanUsBot:</strong></p>${response}` + document.getElementById("chatResponse").innerHTML;
+            document.getElementById("userInput").value = ""; // Clear input field
         }
     </script>
 </body>
